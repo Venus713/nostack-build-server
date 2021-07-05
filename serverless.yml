@@ -1,0 +1,25 @@
+service: build-server
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, "dev"}
+  region: ${opt:region, "us-east-1"}
+  # environment:
+  #   EXPORT_API_URL: ${file(env.yml):EXPORT_API_URL}
+
+plugins:
+  - serverless-offline
+
+functions:
+  graphql:
+    handler: src/server.serverHandler
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+      - http:
+          path: graphql
+          method: get
+          cors: true

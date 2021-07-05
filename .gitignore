@@ -1,0 +1,12 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+.env
+src/actions/export/server/env.json
+src/actions/export/server/temp.yml
+src/actions/export/server/resources/temp.yml
+src/actions/export/test.js
+queryies.txt
